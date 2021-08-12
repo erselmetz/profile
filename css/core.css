@@ -1,0 +1,28 @@
+body{
+    color: whitesmoke;
+}
+
+#particles-js{
+    position: fixed;
+    height:100%;
+    top:0;
+    right:0;
+    bottom:0;
+    left:0;
+    background:rgb(44,44,44);
+}
+.transparent{
+    background: rgba(0,0,0,0);
+}
+.border-radius-0{
+    border-radius:0;
+}
+.card{
+    border-color: darkgreen;
+}
+.card-header{
+    border-color: darkgreen;
+}
+.card-footer{
+    border-color: darkgreen;
+}

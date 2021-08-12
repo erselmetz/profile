@@ -1,0 +1,34 @@
+.laravel{
+    left: 0;
+    width: 0%;
+    height: 80%;
+}
+.php{
+    right: 0;
+    width: 80%;
+    height: 0%;
+}
+.jquery{
+    left: 0;
+    width: 0%;
+    height: 80%;
+}
+.bootstrap{
+    right: 0;
+    width: 80%;
+    height: 0%;
+}
+.html{
+    left: 0;
+    width: 80%;
+    height: 0%;
+}
+.css{
+    right: 0;
+    width: 0%;
+    height: 80%;
+}
+.mysql{
+    width: 0%;
+    height: 80%;
+}
