@@ -1,3 +1,3 @@
 # profile
 
-link : http://erselprofile.ml
+link : http://www.erselprofile.ml
