@@ -6,27 +6,21 @@ $(window).on('load',function(){
 $(document).ready(function(){
     $('.home').on('click',function(e){
         e.preventDefault();
-        $('.particles').css({
-            "height":"100%"
-        });
+        $('.particles').css({ "height":"100%"});
         $('.project, .about').removeClass('is-active gradient');
         $('.home').addClass('is-active gradient');
         $('main').load('home.html');
     });
     $('.project').on('click',function(e){
         e.preventDefault();
-        $('.particles').css({
-            "height":"0%"
-        });
+        $('.particles').css({"height":"0%"});
         $('.home, .about').removeClass('is-active gradient');
         $('.project').addClass('is-active gradient');
         $('main').load('project.html');
     });
     $('.about').on('click',function(e){
         e.preventDefault();
-        $('.particles').css({
-            "height":"0%"
-        });
+        $('.particles').css({"height":"0%"});
         $('.home, .project').removeClass('is-active gradient');
         $('.about').addClass('is-active gradient');
         $('main').load('about.html');
