@@ -1,24 +1,38 @@
 $(window).on('load',function(){
     $('main').load('home.html');
-    $('.home').addClass('active');
+    $('.home').addClass('is-active gradient');
 });
+
 $(document).ready(function(){
-    $('#home').on('click',function(e){
+    $('.home').on('click',function(e){
         e.preventDefault();
-        $('.project, .about').removeClass('active');
-        $('.home').addClass('active');
+        $('.particles').css({
+            "height":"100%"
+        });
+        $('.project, .about').removeClass('is-active gradient');
+        $('.home').addClass('is-active gradient');
         $('main').load('home.html');
     });
-    $('#project').on('click',function(e){
+    $('.project').on('click',function(e){
         e.preventDefault();
-        $('.home, .about').removeClass('active');
-        $('.project').addClass('active');
+        $('.particles').css({
+            "height":"0%"
+        });
+        $('.home, .about').removeClass('is-active gradient');
+        $('.project').addClass('is-active gradient');
         $('main').load('project.html');
     });
-    $('#about').on('click',function(e){
+    $('.about').on('click',function(e){
         e.preventDefault();
-        $('.home, .project').removeClass('active');
-        $('.about').addClass('active');
+        $('.particles').css({
+            "height":"0%"
+        });
+        $('.home, .project').removeClass('is-active gradient');
+        $('.about').addClass('is-active gradient');
         $('main').load('about.html');
+    });
+
+    $('.navbar-burger').click(function(){
+        $('.navbar-menu').toggle('is-active');
     });
 });

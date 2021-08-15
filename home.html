@@ -1,16 +1,19 @@
-
-
-<link rel="stylesheet" href="css/home.css">
-
-<div class="card home-card transparent jumbotron border-radius-0">
-
-    <div class="card-body">
-        <h1 class="display-5">Hi, I am Ersel Metz Magbanua ,<span id='age'>0</span> years old.</h1>
-        <p class="lead">A backend web developer specializing in using php and laravel framework </p>
-        <hr class="my-4">
-        <p class="lead"></p>
+<div class="card home-card has-background-primary-light">
+    <div class="card-content">
+        <div class="content">
+            <p class="title">Hi, I am Ersel Metz Magbanua ,<span id='age'>0</span> years old.</p>
+        <hr>
+        <p class="subtitle">A backend web developer specializing in using laravel framework </p>
+        </div>
     </div>
-    
 </div>
-
-<script src="js/home.js"></script>
+<script>
+    var d = new Date();
+    var myByear = 2004;
+    var currentYear = d.getFullYear();
+    var myAge = currentYear - myByear;
+    $('#age').text(myAge);
+    $('#age').counterUp({
+        time: 1000
+    });
+</script>

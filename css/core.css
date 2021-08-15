@@ -1,7 +1,8 @@
-body{
-    color: whitesmoke;
+.gradient
+{
+    background:rgb(149, 115, 156);
+    background-image: linear-gradient(to bottom left, rgb(149,115,156), rgb(152, 206, 219));
 }
-
 #particles-js{
     position: fixed;
     height:100%;
@@ -9,20 +10,40 @@ body{
     right:0;
     bottom:0;
     left:0;
-    background:rgb(44,44,44);
+    background:rgb(149, 115, 156);
+    background-image: linear-gradient(to bottom left, rgb(149,115,156), rgb(152, 206, 219));
 }
-.transparent{
-    background: rgba(0,0,0,0);
+
+.home-card{
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 70%;
 }
-.border-radius-0{
-    border-radius:0;
+
+.laravel{
+    width: 0%;
 }
-.card{
-    border-color: darkgreen;
+.php{
+    width: 0%;
 }
-.card-header{
-    border-color: darkgreen;
+.jquery{
+    width: 0%;
+
 }
-.card-footer{
-    border-color: darkgreen;
+.bootstrap{
+ 
+    width: 0%;
+}
+.html{
+
+    width: 0%;
+}
+.css{
+ 
+    width: 0%;
+}
+.mysql{
+    width: 0%;
 }
