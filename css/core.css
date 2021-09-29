@@ -1,49 +1,12 @@
 .gradient
 {
-    background:rgb(149, 115, 156);
     background-image: linear-gradient(to bottom left, rgb(149,115,156), rgb(152, 206, 219));
 }
-#particles-js{
-    position: fixed;
-    height:100%;
-    top:0;
-    right:0;
-    bottom:0;
-    left:0;
-    background:rgb(149, 115, 156);
-    background-image: linear-gradient(to bottom left, rgb(149,115,156), rgb(152, 206, 219));
+.gradient-button
+{
+    background-image: linear-gradient(to bottom left, rgb(69, 167, 98), rgb(54, 166, 194));
 }
-
-.home-card{
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 70%;
-}
-
-.laravel{
-    width: 0%;
-}
-.php{
-    width: 0%;
-}
-.jquery{
-    width: 0%;
-
-}
-.bootstrap{
- 
-    width: 0%;
-}
-.html{
-
-    width: 0%;
-}
-.css{
- 
-    width: 0%;
-}
-.mysql{
-    width: 0%;
+.button-hover:hover,.gradient-button:hover
+{
+    background-image: linear-gradient(to bottom left, rgb(179, 189, 94), rgb(163, 56, 163));
 }
