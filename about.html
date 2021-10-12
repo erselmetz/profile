@@ -66,26 +66,40 @@
                     <div class="field">
                         <label class="label">Name</label>
                         <div class="control">
-                            <input class="input black border border-green text-green hover-border-red" type="text">
+                            <input class="input black border border-green text-green hover-border-red" type="text" id="from_name">
                         </div>
                     </div>
                     <div class="field">
                         <label class="label">Email</label>
                         <div class="control">
-                            <input class="input black border border-green text-green hover-border-red" type="text">
+                            <input class="input black border border-green text-green hover-border-red" type="text" id="from_email">
                         </div>
                     </div>
                     <div class="field">
                         <label class="label">Message</label>
                         <div class="control">
-                            <textarea class="input black border border-green text-green hover-border-red"></textarea>
+                            <textarea class="input black border border-green text-green hover-border-red" id="message"></textarea>
                         </div>
                     </div><p></p>
                     <div class="">
-                        <button type="submit" class="btn border border-green hover-border-red text-green hover-text-red">Send Message</button>
+                        <button type="button" class="btn border border-green hover-border-red text-green hover-text-red" onclick="sendMail()">Send Message</button>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 </div>
+<script>
+    function sendMail(params)
+    {
+        var tempParams = {
+            from_name:document.getElementById('from_name').value,
+            from_email:document.getElementById('from_email').value,
+            message:document.getElementById('message').value,
+        };
+
+        emailjs.send('service_mym8wyj','template_zgc8t6b',tempParams).then(function(res){
+            console.log('success',res.status);
+        });
+    }
+</script>
