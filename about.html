@@ -16,7 +16,12 @@
                 </div>
                 <div class="col half">
                     <figure>
-                        <img src="img/jquery.png" class="jquery image" width="80%" id="jquery" alt="">
+                        <img src="img/mysql.png" class="mysql image" width="80%" id="mysql" alt="">
+                    </figure>
+                </div>
+                <div class="col half">
+                    <figure>
+                        <img src="img/vanilla.jpg" class="jquery image" width="80%" id="jquery" alt="">
                     </figure>
                 </div>
                 <div class="col half">
@@ -27,17 +32,6 @@
                 <div class="col half">
                     <figure>
                         <img src="img/html.png" class="html image " width="80%" id="html" alt="">
-                    </figure>
-
-                </div>
-                <div class="col half">
-                    <figure>
-                        <img src="img/mysql.png" class="mysql image" width="80%" id="mysql" alt="">
-                    </figure>
-                </div>
-                <div class="col half">
-                    <figure>
-                        <img src="img/w3css.png" class="w3css image" width="80%" id="w3css" alt="">
                     </figure>
                 </div>
             </div>
@@ -89,17 +83,3 @@
         </div>
     </div>
 </div>
-<script>
-    function sendMail(params)
-    {
-        var tempParams = {
-            from_name:document.getElementById('from_name').value,
-            from_email:document.getElementById('from_email').value,
-            message:document.getElementById('message').value,
-        };
-
-        emailjs.send('service_mym8wyj','template_zgc8t6b',tempParams).then(function(res){
-            console.log('success',res.status);
-        });
-    }
-</script>
