@@ -1,0 +1,22 @@
+{
+  "name": "profile",
+  "version": "1.0.0",
+  "description": "link : https://www.erselprofile.ml",
+  "main": "index.js",
+  "dependencies": {
+    "jquery": "3.6.0"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/erselmetz/profile.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/erselmetz/profile/issues"
+  },
+  "homepage": "https://github.com/erselmetz/profile#readme"
+}

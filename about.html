@@ -6,32 +6,32 @@
             <div class="row">
                 <div class="col half">
                     <figure class="">
-                        <img src="img/laravel.png" class="laravel image" width="80%" id="laravel" alt="">
+                        <img src="img/laravel.png" class="laravel image" width="80%" id="laravel" alt="" onclick="modal_image($(this).attr('src'))">
                     </figure>
                 </div>
                 <div class="col half">
                     <figure class="">
-                        <img src="img/php.png" class="php image" width="80%" id="php" alt="">
+                        <img src="img/php.png" class="php image" width="80%" id="php" alt="" onclick="modal_image($(this).attr('src'))">
                     </figure>
                 </div>
                 <div class="col half">
                     <figure>
-                        <img src="img/mysql.png" class="mysql image" width="80%" id="mysql" alt="">
+                        <img src="img/mysql.png" class="mysql image" width="80%" id="mysql" alt="" onclick="modal_image($(this).attr('src'))">
                     </figure>
                 </div>
                 <div class="col half">
                     <figure>
-                        <img src="img/jquery.png" class="jquery image" width="80%" id="jquery" alt="">
+                        <img src="img/jquery.png" class="jquery image" width="80%" id="jquery" alt="" onclick="modal_image($(this).attr('src'))">
                     </figure>
                 </div>
                 <div class="col half">
                     <figure>
-                        <img src="img/css.png" class="css" id="css image" width="80%" alt="">
+                        <img src="img/css.png" class="css" id="css image" width="80%" alt="" onclick="modal_image($(this).attr('src'))">
                     </figure>
                 </div>
                 <div class="col half">
                     <figure>
-                        <img src="img/html.png" class="html image " width="80%" id="html" alt="">
+                        <img src="img/html.png" class="html image " width="80%" id="html" alt="" onclick="modal_image($(this).attr('src'))">
                     </figure>
                 </div>
             </div>
@@ -42,17 +42,19 @@
         <div class="container">
             <div class="row">
                 <div class="col half padding-16">
-                    <p class="">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla eligendi soluta
-                        voluptate facere molestiae consequatur.</p>
+                    <p class=""></p>
                     <div class="social-media ">
                         <a href="https://facebook.com/erselmetz" target="_blank" class="btn text-green hover-text-red">
                             <i class="fab fa-facebook-square jumbo" aria-hidden=""></i>
                         </a>
-                        <a href="https://instagram.com" target="_blank" class="btn text-green hover-text-red">
+                        <a href="https://instagram.com/erzel_metz" target="_blank" class="btn text-green hover-text-red">
                             <i class="fab fa-instagram jumbo" aria-hidden="true"></i>
                         </a>
-                        <a href="https://twitter.com" target="_blank" class="btn text-green hover-text-red">
+                        <a href="https://twitter.com/MetzErsel" target="_blank" class="btn text-green hover-text-red">
                             <i class="fab fa-twitter jumbo" aria-hidden="true"></i>
+                        </a>
+                        <a href="mailto:magbanuaersel@gmail.com" class="btn text-green hover-text-red">
+                            <i class="fas fa-envelope jumbo" aria-hidden="true"></i>
                         </a>
                     </div>
                 </div>
@@ -82,4 +84,9 @@
             </div>
         </div>
     </div>
+</div>
+
+<div class="modal container">
+    <button class="right btn jumbo" onclick="$('.modal').hide();">&times;</button>
+    <img src="" alt="" id='image_here' class="image">
 </div>

@@ -11,7 +11,7 @@
                             <P>*Create Account</P>
                             <p>*Edit Account</p>
                         </div>
-                        <img src="img/Screenshot (12).png" alt="" class="image">
+                        <img src="img/Screenshot (12).png" alt="" class="image" onclick="modal_image($(this).attr('src'));">
                     </div>
                 </div>
             </div>
@@ -30,7 +30,7 @@
                             <p>*Delete Room or Disccussion</p>
                             <p>*Delete Group Chat</p>
                         </div>
-                        <img src="img/Screenshot (11).png" alt="" class="image">
+                        <img src="img/Screenshot (11).png" alt="" class="image" onclick="modal_image($(this).attr('src'));">
                     </div>
                 </div>
             </div>
@@ -47,7 +47,7 @@
                             <p>*Edit Note</p>
                             <p>*Delete Note</p>
                         </div>
-                        <img src="img/Screenshot (9).png" alt="" class="image">
+                        <img src="img/Screenshot (9).png" alt="" class="image" onclick="modal_image($(this).attr('src'));">
                     </div>
                 </div>
             </div>
@@ -60,4 +60,8 @@
             </div> -->
         </div>
     </div>
+</div>
+<div class="modal container">
+    <button class="right btn jumbo" onclick="$('.modal').hide();">&times;</button>
+    <img src="" alt="" id='image_here' class="image">
 </div>

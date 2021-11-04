@@ -52,3 +52,8 @@ document.querySelector('.project').addEventListener('click',function(){
 document.querySelector('.about').addEventListener('click',function(){
     document.querySelector('#navbar').classList.add('hide-small');
 });
+
+function modal_image(link){
+    $('.modal').show();
+    $('#image_here').attr('src',link);
+}
