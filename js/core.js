@@ -1,6 +1,6 @@
 window.addEventListener('load',function(){
     document.querySelector('.home').classList.add('text-red');
-    load('#main','home.html');
+    $('#main').load('home.html');
 });
 function sendMail(params){
     var tempParams = {
@@ -8,37 +8,30 @@ function sendMail(params){
         from_email:document.getElementById('from_email').value,
         message:document.getElementById('message').value,
     };
-    emailjs.send('service_mym8wyj','template_zgc8t6b',tempParams).then(function(res){
+    emailjs.send('service_mym8wyj','template_zgc8t6b',tempParams)
+    .then(function(res){
         console.log('success',res.status);
+    },function(error){
+        alert('Error Sending Message!!',error);
     });
-}
-function load(to, from){
-    var req = new XMLHttpRequest();
-    req.open('GET',from);
-    req.setRequestHeader('Accept','text/javascript');
-    req.setRequestHeader('content-type','text/html');
-    req.send();
-    req.onload = function(){
-        document.querySelector(to).innerHTML = this.responseText;
-    };
 }
 document.querySelector('.home').addEventListener('click',function(){
     document.querySelector('.about').classList.remove('text-red');
     document.querySelector('.project').classList.remove('text-red');
     document.querySelector('.home').classList.add('text-red');
-    load('.main','home.html');
+    $('#main').load('home.html');
 });
 document.querySelector('.project').addEventListener('click',function(){
     document.querySelector('.about').classList.remove('text-red');
     document.querySelector('.home').classList.remove('text-red');
     document.querySelector('.project').classList.add('text-red');
-    load('main','project.html');
+    $('#main').load('project.html');
 });
 document.querySelector('.about').addEventListener('click',function(){
     document.querySelector('.project').classList.remove('text-red');
     document.querySelector('.home').classList.remove('text-red');
     document.querySelector('.about').classList.add('text-red');
-    load('main','about.html');
+    $('#main').load('about.html');
 });
 document.querySelector('.navbar-trigger').addEventListener('click',function(){
     document.querySelector('#navbar').classList.toggle('hide-small');
