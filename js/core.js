@@ -11,6 +11,9 @@ function sendMail(params){
     emailjs.send('service_mym8wyj','template_zgc8t6b',tempParams)
     .then(function(res){
         console.log('success',res.status);
+        $('#from_name').val('');
+        $('#from_email').val('');
+        $('#message').val('');
     },function(error){
         alert('Error Sending Message!!',error);
     });
