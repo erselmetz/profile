@@ -14,6 +14,7 @@ function sendMail(params){
         $('#from_name').val('');
         $('#from_email').val('');
         $('#message').val('');
+        $('.message-status').html("&#10003; message sent!!");
     },function(error){
         alert('Error Sending Message!!',error);
     });
