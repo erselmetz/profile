@@ -1,53 +1,143 @@
-window.addEventListener('load',function(){
-    document.querySelector('.home').classList.add('text-red');
-    $('#main').load('home.html');
-});
-function sendMail(params){
+import Metz from './metz.js';
+
+let $ = new Metz();
+
+var main = document.getElementById('main');
+var home = document.querySelector('.home');
+var project = document.querySelector('.project');
+var about = document.querySelector('.about');
+var navbar = document.querySelector('#navbar');
+
+function sendMail(){
+
+    var from_name = document.getElementById('from_name');
+    var from_email = document.getElementById('from_email');
+    var message = document.getElementById('message');
+    var message_status = document.querySelector('.message-status');
+
+    message_status.innerHTML = 'Sending!!';
+
     var tempParams = {
-        from_name:document.getElementById('from_name').value,
-        from_email:document.getElementById('from_email').value,
-        message:document.getElementById('message').value,
+        from_name: from_name.value,
+        from_email: from_email.value,
+        message: message.value,
     };
+
     emailjs.send('service_mym8wyj','template_zgc8t6b',tempParams)
     .then(function(res){
         console.log('success',res.status);
-        $('#from_name').val('');
-        $('#from_email').val('');
-        $('#message').val('');
-        $('.message-status').html("&#10003; message sent!!");
+        from_name.value = '';
+        from_email.value = '';
+        message.value = '';
+        message_status.innerHTML = "&#10003; message sent!!";
     },function(error){
         alert('Error Sending Message!!',error);
     });
 }
-document.querySelector('.home').addEventListener('click',function(){
-    document.querySelector('.about').classList.remove('text-red');
-    document.querySelector('.project').classList.remove('text-red');
-    document.querySelector('.home').classList.add('text-red');
-    $('#main').load('home.html');
+
+function loadHome(){
+    fetch('home.html').then((response)=>{
+        return response.text();
+    }).then(function(data){
+        main.innerHTML = data;
+
+        $.animateText({
+            text: 'Backend Web Developer',
+            id: 'sub',
+        },100);
+
+        $.animateColor({
+            color: 'random',
+            id: 'card',
+            type:'border'
+        },1000);
+
+        $.animateColor({
+            color: 'random',
+            id: 'sub',
+            type:'text'
+        },500);
+
+        $.counterUp({
+            number:'17',
+            id:'age',
+        },100);
+    });
+}
+
+function loadProject(){
+    fetch('project.html').then((response)=>{
+        return response.text();
+    }).then(function(data){
+        main.innerHTML = data;
+
+        $.counterUp({
+            number: 5,
+            id: 'project',
+            loop: false,
+        },100);
+
+        $.animateColor({
+            color: 'random',
+            id: 'project',
+            type: 'text'
+        },100);
+    });
+}
+
+function loadAbout(){
+    fetch('about.html').then((response)=>{
+
+        return response.text(); 
+
+    }).then((data)=>{
+
+        main.innerHTML = data;
+
+        var sendEmail = document.getElementById('sendEmail');
+        sendEmail.addEventListener('click',()=>{
+            sendMail();
+        });
+
+    });
+}
+
+window.addEventListener('load',function(){
+    home.classList.add('text-red');
+
+    loadHome();
+
 });
-document.querySelector('.project').addEventListener('click',function(){
-    document.querySelector('.about').classList.remove('text-red');
-    document.querySelector('.home').classList.remove('text-red');
-    document.querySelector('.project').classList.add('text-red');
-    $('#main').load('project.html');
+
+home.addEventListener('click',function(){
+    about.classList.remove('text-red');
+    project.classList.remove('text-red');
+    home.classList.add('text-red');
+    loadHome();
 });
-document.querySelector('.about').addEventListener('click',function(){
-    document.querySelector('.project').classList.remove('text-red');
-    document.querySelector('.home').classList.remove('text-red');
-    document.querySelector('.about').classList.add('text-red');
-    $('#main').load('about.html');
+project.addEventListener('click',function(){
+    about.classList.remove('text-red');
+    home.classList.remove('text-red');
+    project.classList.add('text-red');
+    loadProject();
+});
+about.addEventListener('click',function(){
+    project.classList.remove('text-red');
+    home.classList.remove('text-red');
+    about.classList.add('text-red');
+    loadAbout();
 });
 document.querySelector('.navbar-trigger').addEventListener('click',function(){
-    document.querySelector('#navbar').classList.toggle('hide-small');
+    navbar.classList.toggle('hide-small');
 });
-document.querySelector('.home').addEventListener('click',function(){
-    document.querySelector('#navbar').classList.add('hide-small');
+home.addEventListener('click',function(){
+    navbar.classList.add('hide-small');
 });
-document.querySelector('.project').addEventListener('click',function(){
-    document.querySelector('#navbar').classList.add('hide-small');
+project.addEventListener('click',function(){
+    navbar.classList.add('hide-small');
 });
-document.querySelector('.about').addEventListener('click',function(){
-    document.querySelector('#navbar').classList.add('hide-small');
+about.addEventListener('click',function(){
+    navbar.classList.add('hide-small');
 });
 
 function modal_image(link){
