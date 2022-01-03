@@ -236,3 +236,4 @@ hr{border:0;border-top:1px solid #eee;margin:20px 0}
 /* Additional */
 .w3-invisible{opacity: 0;}
 .w3-visible{opacity: 1;}
+.w3-shadow{box-shadow: 2px 2px 8px 8px rgba(0,0,0,0.5);}

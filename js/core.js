@@ -1,10 +1,3 @@
-var main = document.getElementById('main')
-var home = document.querySelector('.home')
-var project = document.querySelector('.project')
-var about = document.querySelector('.about')
-var navbar = document.querySelector('#navbar')
-var navbarTrigger = document.querySelector('.w3-navbar-trigger')
-
 function sendMail(){
 
     var from_name = document.getElementById('from_name')
@@ -38,19 +31,17 @@ function loadHome(){
     }).then(function(data){
         main.innerHTML = data
 
-        $('#sub').animateText({
+        Metz('#sub').animateText({
             text: 'Backend Web Developer',
         },100)
 
-        $('#card').animateColor({
+        Metz('#card').animateColor({
             color: 'random',
             type:'border'
-        },1000)
+        },500)
 
-        $('.w3-title').animateChar({
-            text: 'Hi, I am Ersel Metz Magbanua, 17 years old.',
+        Metz('.w3-title').animateChar({
             effect: 'top',
-            color: 'random',
             speed: 40
         })
 
@@ -63,14 +54,14 @@ function loadProject(){
     }).then(function(data){
         main.innerHTML = data
 
-        $('#project').counterUp({
+        Metz('#project').counterUp({
             number: 5,
         },100)
 
-        // $('#project').animateColor({
-        //     color: ['white','black'],
-        //     type: 'text',
-        // },1000)
+        Metz('#project').animateColor({
+            color: ['white','black'],
+            type: 'text',
+        },1000)
 
         var image = document.querySelectorAll('.image')
         var imageShow = document.querySelector('.imageShow')
@@ -119,39 +110,44 @@ function loadAbout(){
 }
 
 window.addEventListener('load',function(){
-    home.classList.add('w3-text-red')
-
-    loadHome()
-
-})
-
-home.addEventListener('click',function(){
-    about.classList.remove('w3-text-red')
-    project.classList.remove('w3-text-red')
-    home.classList.add('w3-text-red')
+    Metz('.home').addClass('w3-text-red')
+    Metz('.home').removeClass('w3-text-green')
     loadHome()
 })
-project.addEventListener('click',function(){
-    about.classList.remove('w3-text-red')
-    home.classList.remove('w3-text-red')
-    project.classList.add('w3-text-red')
+
+Metz('.home').on('click',function(){
+    Metz('.about').removeClass('w3-text-red')
+    Metz('.project').removeClass('w3-text-red')
+    Metz('.home').addClass('w3-text-red')
+    loadHome()
+})
+Metz('.project').on('click',function(){
+    Metz('.about').removeClass('w3-text-red')
+    Metz('.home').removeClass('w3-text-red')
+    Metz('.project').addClass('w3-text-red')
     loadProject()
 })
-about.addEventListener('click',function(){
-    project.classList.remove('w3-text-red')
-    home.classList.remove('w3-text-red')
-    about.classList.add('w3-text-red')
+Metz('.about').on('click',function(){
+    Metz('.project').removeClass('w3-text-red')
+    Metz('.home').removeClass('w3-text-red')
+    Metz('.about').addClass('w3-text-red')
     loadAbout()
 })
-navbarTrigger.addEventListener('click',function(){
-    navbar.classList.toggle('w3-hide-small')
+
+Metz('.w3-navbar-trigger').on('click',function(){
+    Metz('#navbar').toggleClass('w3-hide-small')
 })
-home.addEventListener('click',function(){
-    navbar.classList.add('w3-hide-small')
+Metz('.home').on('click',function(){
+    Metz('.navbar').addClass('w3-hide-small')
+    Metz('#navbar').toggleClass('w3-hide-small')
 })
-project.addEventListener('click',function(){
-    navbar.classList.add('w3-hide-small')
+Metz('.project').on('click',function(){
+    Metz('.navbar').addClass('w3-hide-small')
+    Metz('#navbar').toggleClass('w3-hide-small')
+
 })
-about.addEventListener('click',function(){
-    navbar.classList.add('w3-hide-small')
+Metz('.about').on('click',function(){
+    Metz('.navbar').addClass('w3-hide-small')
+    Metz('#navbar').toggleClass('w3-hide-small')
+
 })

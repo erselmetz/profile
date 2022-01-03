@@ -1,6 +1,6 @@
 const strings ='ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz'
 const numbers = '1234567890'
-const special = ',./@{}[]()%$#!*_-=+|/\\?<>'
+const special = ',./@{}[]()$#!*_-'
 
 function generateString(length){
     const characters = strings+numbers
@@ -32,79 +32,61 @@ function randomColor() {
     return result
 }
 
-
-
-var $ = function(selector) {
-    if (! (this instanceof $) ) {
-        return new $(selector)
+var Metz = function(selector) {
+    if (! (this instanceof Metz) ) {
+        return new Metz(selector)
     }
-    this.el = document.querySelectorAll(selector)
+    this.element = document.querySelectorAll(selector)
+    this.el = document.querySelectorAll(selector)[0]
     return this
 }
 
-$.prototype.css = function(prop, val){
-    this.el.forEach(function(element) {
-        element.style[prop] = val
-    })
-    return this
-}
 
-$.prototype.animate = function (params) {
-    
-}
 
-$.prototype.addClass = function (params) {
-    this.el.forEach(element => {
-        element.classList.add = params
-    });
-    return this
-}
-
-$.prototype.removeClass = function (params) {
-    this.el.forEach(element => {
-        element.classList.remove = params
-    });
-    return this
-}
-
-$.prototype.animateColor = function(data,speed){
+Metz.prototype.animateColor = function(data,speed){
     var x = 0
-    this.el.forEach(obj => {
-        if(data.color == 'random'){
-            setInterval(function(){obj.style.borderColor = randomColor()},speed)
-        }
+    this.element.forEach(obj => {
         if(data.type == 'border'){
             obj.style.border = '1px solid'
-            setInterval(function(){
-                if(x <= data.color.length){
-                    obj.style.borderColor = data.color
-                    x++
-                }
-                if(x > data.color.length){
-                    x = 0
-                }
-            },speed)
+            if(data.color == 'random'){
+                setInterval(function(){obj.style.borderColor = randomColor()},speed)
+            }else{
+                setInterval(function(){
+                    if(x <= data.color.length){
+                        obj.style.borderColor = data.color[x]
+                        x++
+                    }
+                    if(x > data.color.length){
+                        x = 0
+                    }
+                },speed)
+            }
+            
         }
         if(data.type == "text"){
-            setInterval(function(){
-                if(x <= data.color.length){
-                    obj.style.color = data.color[x]
-                    x++
-                }
-                if(x > data.color.length){
-                    x = 0
-                }
-            },speed)
+            if(data.color == 'random'){
+                setInterval(function(){obj.style.color = randomColor()},speed)
+            }else if(data.color && data.color != ''){
+                setInterval(function(){
+                    if(x <= data.color.length){
+                        obj.style.color = data.color[x]
+                        x++
+                    }
+                    if(x > data.color.length){
+                        x = 0
+                    }
+                },speed)
+            }
         }
     })
     return this
 }
     
-$.prototype.animateText = function(data,speed){
+Metz.prototype.animateText = function(data,speed){
     var animate = data
     var text = animate.text
     var x = 1
-    this.el.forEach(function(sub){
+    this.element.forEach(function(sub){
         sub.innerHTML = animate.text.charAt(0)
         var timer = setInterval(function(){
             if(x <= text.length){
@@ -125,8 +107,8 @@ $.prototype.animateText = function(data,speed){
     return this
 }
 
-$.prototype.animateChar = function(data){
-    this.el.forEach(obj => {
+Metz.prototype.animateChar = function(data){
+    this.element.forEach(obj => {
         var char = 0 
         var text = obj.innerText
         if(data.text){text = data.text}else{text = obj.innerText}
@@ -135,14 +117,10 @@ $.prototype.animateChar = function(data){
         const classCode = generateStringWithoutNumbers(8)
 
         for(var i = 0;i < splitText.length;i++){
-            if(data.color && data.color == 'random'){
-                color = randomColor()
-            }else if(data.color != ''){
-                color = data.color
-            }else{
-                color = 'black'
-            }
-            obj.innerHTML += `<span class="${classCode} w3-invisible" style="color:${color}">${splitText[i]}</span>`
+            if(data.color && data.color == 'random'){color = randomColor()}
+            if(data.color != ''){color = data.color}
+            if(!data.color){color = 'black'}
+            obj.innerHTML += `<span class="${classCode} w3-invisible" style="color:${color};">${splitText[i]}</span>`
         }
 
         var timer = setInterval(function(){
@@ -158,10 +136,10 @@ $.prototype.animateChar = function(data){
     return this
 }
 
-$.prototype.counterUp = function(data,speed){
+Metz.prototype.counterUp = function(data,speed){
     var count = data
     var x = 0
-    this.el.forEach(obj => {
+    this.element.forEach(obj => {
         setInterval(()=>{
             if(x <= count.number ){
                 obj.innerHTML = x
@@ -177,8 +155,59 @@ $.prototype.counterUp = function(data,speed){
     return this
 }
 
-$.prototype.on = function(param,callback) {
-    this.el.forEach(element => {
+Metz.prototype.style = function(prop, val){
+    this.element.forEach(function(element) {
+        var classCode = generateStringWithoutNumbers(15)
+        var css = '.'+classCode+'{'+prop+'}'
+        element.classList.add(classCode)
+        document.querySelector('style').innerHTML += css
+    })
+    return this
+}
+
+Metz.prototype.css = function(prop, val){
+    this.element.forEach(function(element) {
+        element.style[prop] = val
+    })
+    return this
+}
+
+// Metz.prototype.animate = function (params) {
+//     this.element.forEach(element => {
+        
+//     });
+// }
+
+Metz.prototype.addClass = function (params) {
+    this.element.forEach(element => {
+        element.classList.add(params)
+    });
+    return this
+}
+
+Metz.prototype.removeClass = function (params) {
+    this.element.forEach(element => {
+        element.classList.remove(params)
+    });
+    return this
+}
+
+Metz.prototype.toggleClass = function (params) {
+    this.element.forEach(element => {
+        var list = element.classList.contains(params)
+        if(list == true){
+            element.classList.remove(params)
+        }
+        if(list == false){
+            element.classList.add(params)
+        }
+    });
+    return this
+}
+
+
+Metz.prototype.on = function(param,callback) {
+    this.element.forEach(element => {
         element.addEventListener(param,function(){
             callback()
         })
@@ -186,43 +215,58 @@ $.prototype.on = function(param,callback) {
     return this
 }
 
-$.prototype.focus = function (params) {
-    this.el.forEach(element => {
+Metz.prototype.focus = function (params) {
+    this.element.forEach(element => {
         element.focus()
     });
     return this
 }
 
-$.prototype.text = function (params) {
-    this.el.forEach(element => {
+Metz.prototype.text = function (params) {
+    this.element.forEach(element => {
         if(params || params == ''){
             element.innerText = params
         }
     });
-    return this.el[0].innerText
+    return this.element[0].innerText
 }
 
-$.prototype.html = function (params) {
-    this.el.forEach(element => {
+Metz.prototype.html = function (params) {
+    this.element.forEach(element => {
         if(params || params == ''){
             element.innerHTML = params
         }
     });
-    return this.el[0].innerHTML
+    return this.element[0].innerHTML
 }
 
-$.prototype.val = function (params) {
-    this.el.forEach(element => {
+Metz.prototype.val = function (params) {
+    this.element.forEach(element => {
         if(params || params == ''){
             element.value = params
         }
     });
-    return this.el[0].value
+    return this.element[0].value
 }
 
-$.prototype.validate = function (params) {
-    this.el.forEach(element => {
-        
+Metz.prototype.validate = function (params) {
+    this.element.forEach(element => {
+        var input = document.querySelectorAll('element input')
+        input.forEach(input => {
+            if(input || input != '' || input == null){
+                
+            }
+        });
+    });
+    return this
+}
+
+Metz.prototype.load = function (params) {
+    this.element.forEach(element => {
+        fetch(params).then(response => response.text())
+        .then(data => {
+            element.innerHTML = data
+        })
     });
     return this
 }
