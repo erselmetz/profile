@@ -1,3 +1,5 @@
+var main = document.querySelector('main')
+
 function sendMail(){
 
     var from_name = document.getElementById('from_name')
@@ -111,7 +113,6 @@ function loadAbout(){
 
 window.addEventListener('load',function(){
     Metz('.home').addClass('w3-text-red')
-    Metz('.home').removeClass('w3-text-green')
     loadHome()
 })
 
@@ -126,12 +127,14 @@ Metz('.project').on('click',function(){
     Metz('.home').removeClass('w3-text-red')
     Metz('.project').addClass('w3-text-red')
     loadProject()
+    window.scrollTo(top)
 })
 Metz('.about').on('click',function(){
     Metz('.project').removeClass('w3-text-red')
     Metz('.home').removeClass('w3-text-red')
     Metz('.about').addClass('w3-text-red')
     loadAbout()
+    window.scroll(top)
 })
 
 Metz('.w3-navbar-trigger').on('click',function(){
