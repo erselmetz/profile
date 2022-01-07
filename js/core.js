@@ -60,11 +60,6 @@ function loadProject(){
             number: 5,
         },100)
 
-        Metz('#project').animateColor({
-            color: ['white','black'],
-            type: 'text',
-        },1000)
-
         var image = document.querySelectorAll('.image')
         var imageShow = document.querySelector('.imageShow')
         var imageShowModal = document.querySelector('.imageShowModal')
