@@ -136,21 +136,37 @@ Metz.prototype.animateChar = function(data){
     return this
 }
 
-Metz.prototype.counterUp = function(data,speed){
-    var count = data
-    var x = 0
+Metz.prototype.counterUp = function(data){
     this.element.forEach(obj => {
-        setInterval(()=>{
-            if(x <= count.number ){
+        var number
+        var x = 0
+
+        if(data.number){
+            number = data.number
+        }
+
+        if(!data.number){
+            number = obj.innerText
+        }
+
+        var counterUpTimer = setInterval(() => {runCounterUp()},data.speed)
+
+        function runCounterUp(){
+            x++
+            if(x <= number ){
                 obj.innerHTML = x
-                x++
             }
-            if(count.loop == true){
-                if(x >= count.number){
+            if(data.loop == true){
+                if(x >= number){
                     x = 0
                 }
+            }else{
+                if(x >= number){
+                    clearInterval(counterUpTimer)
+                }
             }
-        },speed)
+        }
+        
     })
     return this
 }

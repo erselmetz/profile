@@ -57,8 +57,9 @@ function loadProject(){
         main.innerHTML = data
 
         Metz('#project').counterUp({
-            number: 5,
-        },100)
+            number: 6,
+            speed: 100
+        })
 
         var image = document.querySelectorAll('.image')
         var imageShow = document.querySelector('.imageShow')
