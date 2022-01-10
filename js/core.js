@@ -7,24 +7,52 @@ function sendMail(){
     var message = document.getElementById('message')
     var message_status = document.querySelector('.message-status')
 
-    message_status.innerHTML = 'Sending!!'
+    if(from_name.value&&from_email.value&&message.value){
 
-    var tempParams = {
-        from_name: from_name.value,
-        from_email: from_email.value,
-        message: message.value,
+        message_status.innerHTML = 'Sending!!'
+
+        var tempParams = {
+            from_name: from_name.value,
+            from_email: from_email.value,
+            message: message.value,
+        }
+
+        emailjs.send('service_mym8wyj','template_zgc8t6b',tempParams)
+        .then(function(res){
+            console.log('success',res.status)
+            from_name.value = ''
+            from_email.value = ''
+            message.value = ''
+            message_status.innerHTML = "&#10003 message sent!!"
+        },function(error){
+            alert('Error Sending Message!!',error)
+        })
+
+    }else{
+        if(!from_name.value){
+            from_name.classList.remove('w3-border-green')
+            from_name.classList.add('w3-border-red')
+        }else{
+            from_name.classList.remove('w3-border-red')
+            from_name.classList.add('w3-border-green')
+        }
+
+        if(!from_email.value){
+            from_email.classList.remove('w3-border-green')
+            from_email.classList.add('w3-border-red')
+        }else{
+            from_email.classList.remove('w3-border-red')
+            from_email.classList.add('w3-border-green')
+        }
+
+        if(!message.value){
+            message.classList.remove('w3-border-green')
+            message.classList.add('w3-border-red')
+        }else{
+            message.classList.remove('w3-border-red')
+            message.classList.add('w3-border-green')
+        }
     }
-
-    emailjs.send('service_mym8wyj','template_zgc8t6b',tempParams)
-    .then(function(res){
-        console.log('success',res.status)
-        from_name.value = ''
-        from_email.value = ''
-        message.value = ''
-        message_status.innerHTML = "&#10003 message sent!!"
-    },function(error){
-        alert('Error Sending Message!!',error)
-    })
 }
 
 function loadHome(){
