@@ -62,7 +62,7 @@ function loadHome(){
         main.innerHTML = data
 
         Metz('#sub').animateText({
-            text: 'Backend Web Developer',
+            text: 'Frontend Web Developer',
         },100)
 
         Metz('#card').animateColor({
@@ -85,7 +85,7 @@ function loadProject(){
         main.innerHTML = data
 
         Metz('#project').counterUp({
-            number: 6,
+            number: 4,
             speed: 100
         })
 
