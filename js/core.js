@@ -85,7 +85,7 @@ function loadProject(){
         main.innerHTML = data
 
         Metz('#project').counterUp({
-            number: 5,
+            number: 4,
             speed: 100
         })
 
