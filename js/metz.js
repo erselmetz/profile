@@ -28,261 +28,264 @@ function generateNumber(length){
 }
 
 function randomColor() {
-    result = "#"+Math.floor(Math.random() * 16777215).toString(16)
+    result = '#'+Math.floor(Math.random() * 16777215).toString(16)
     return result
 }
 
-var Metz = function(selector) {
-    if (! (this instanceof Metz) ) {
-        return new Metz(selector)
+var Metz = (selector) => {
+    return new MetzLibrary(selector)
+}
+
+class MetzLibrary {
+    constructor (element) {
+
+        this.element = document.querySelectorAll(element)
+        this.el = document.querySelectorAll(element)[0]
+
     }
-    this.element = document.querySelectorAll(selector)
-    this.el = document.querySelectorAll(selector)[0]
-    return this
-}
 
-
-
-Metz.prototype.animateColor = function(data,speed){
-    var x = 0
-    this.element.forEach(obj => {
-        if(data.type == 'border'){
-            obj.style.border = '1px solid'
-            if(data.color == 'random'){
-                setInterval(function(){obj.style.borderColor = randomColor()},speed)
-            }else{
-                setInterval(function(){
-                    if(x <= data.color.length){
-                        obj.style.borderColor = data.color[x]
-                        x++
+    animateText (data,speed){
+        var animate = data
+        var text = animate.text
+        var x = 1
+        this.element.forEach(function(sub){
+            sub.innerHTML = animate.text.charAt(0)
+            var timer = setInterval(function(){
+                if(x <= text.length){
+                    sub.innerHTML += text.charAt(x)
+                    x++
+                }
+                if(animate.loop == true){
+                    if(x >= text.length){
+                        x = 1
+                        sub.innerHTML = animate.text.charAt(0)
                     }
-                    if(x > data.color.length){
-                        x = 0
-                    }
-                },speed)
-            }
-            
-        }
-        if(data.type == "text"){
-            if(data.color == 'random'){
-                setInterval(function(){obj.style.color = randomColor()},speed)
-            }else if(data.color && data.color != ''){
-                setInterval(function(){
-                    if(x <= data.color.length){
-                        obj.style.color = data.color[x]
-                        x++
-                    }
-                    if(x > data.color.length){
-                        x = 0
-                    }
-                },speed)
-            }
-        }
-    })
-    return this
-}
-    
-Metz.prototype.animateText = function(data,speed){
-    var animate = data
-    var text = animate.text
-    var x = 1
-    this.element.forEach(function(sub){
-        sub.innerHTML = animate.text.charAt(0)
-        var timer = setInterval(function(){
-            if(x <= text.length){
-                sub.innerHTML += text.charAt(x)
-                x++
-            }
-            if(animate.loop == true){
+                }
                 if(x >= text.length){
-                    x = 1
-                    sub.innerHTML = animate.text.charAt(0)
+                    clearInterval(timer)
                 }
-            }
-            if(x >= text.length){
-                clearInterval(timer)
-            }
-        },speed)
-    })
-    return this
-}
-
-Metz.prototype.animateChar = function(data){
-    this.element.forEach(obj => {
-        var char = 0 
-        var text = obj.innerText
-        if(data.text){text = data.text}else{text = obj.innerText}
-        var splitText = text.split('')
-        obj.innerHTML = ''
-        const classCode = generateStringWithoutNumbers(8)
-
-        for(var i = 0;i < splitText.length;i++){
-            if(data.color && data.color == 'random'){color = randomColor()}
-            if(data.color != ''){color = data.color}
-            if(!data.color){color = 'black'}
-            obj.innerHTML += `<span class="${classCode} w3-invisible" style="color:${color};">${splitText[i]}</span>`
-        }
-
-        var timer = setInterval(function(){
-            var span = document.querySelectorAll('span.'+classCode)[char]
-            span.classList.remove('w3-invisible')
-            span.classList.add('w3-animate-'+data.effect)
-            char++
-            if(char >= splitText.length){
-                clearInterval(timer)
-            }
-        }, data.speed)
-    })
-    return this
-}
-
-Metz.prototype.counterUp = function(data){
-    this.element.forEach(obj => {
-        var number
-        var x = 0
-
-        if(data.number){
-            number = data.number
-        }
-
-        if(!data.number){
-            number = obj.innerText
-        }
-
-        var counterUpTimer = setInterval(() => {runCounterUp()},data.speed)
-
-        function runCounterUp(){
-            x++
-            if(x <= number ){
-                obj.innerHTML = x
-            }
-            if(data.loop == true){
-                if(x >= number){
-                    x = 0
-                }
-            }else{
-                if(x >= number){
-                    clearInterval(counterUpTimer)
-                }
-            }
-        }
-        
-    })
-    return this
-}
-
-Metz.prototype.style = function(prop, val){
-    this.element.forEach(function(element) {
-        var classCode = generateStringWithoutNumbers(15)
-        var css = '.'+classCode+'{'+prop+'}'
-        element.classList.add(classCode)
-        document.querySelector('style').innerHTML += css
-    })
-    return this
-}
-
-Metz.prototype.css = function(prop, val){
-    this.element.forEach(function(element) {
-        element.style[prop] = val
-    })
-    return this
-}
-
-// Metz.prototype.animate = function (params) {
-//     this.element.forEach(element => {
-        
-//     });
-// }
-
-Metz.prototype.addClass = function (params) {
-    this.element.forEach(element => {
-        element.classList.add(params)
-    });
-    return this
-}
-
-Metz.prototype.removeClass = function (params) {
-    this.element.forEach(element => {
-        element.classList.remove(params)
-    });
-    return this
-}
-
-Metz.prototype.toggleClass = function (params) {
-    this.element.forEach(element => {
-        var list = element.classList.contains(params)
-        if(list == true){
-            element.classList.remove(params)
-        }
-        if(list == false){
-            element.classList.add(params)
-        }
-    });
-    return this
-}
-
-
-Metz.prototype.on = function(param,callback) {
-    this.element.forEach(element => {
-        element.addEventListener(param,function(){
-            callback()
+            },speed)
         })
-    });
-    return this
-}
+        return this
+    }
 
-Metz.prototype.focus = function (params) {
-    this.element.forEach(element => {
-        element.focus()
-    });
-    return this
-}
-
-Metz.prototype.text = function (params) {
-    this.element.forEach(element => {
-        if(params || params == ''){
-            element.innerText = params
-        }
-    });
-    return this.element[0].innerText
-}
-
-Metz.prototype.html = function (params) {
-    this.element.forEach(element => {
-        if(params || params == ''){
-            element.innerHTML = params
-        }
-    });
-    return this.element[0].innerHTML
-}
-
-Metz.prototype.val = function (params) {
-    this.element.forEach(element => {
-        if(params || params == ''){
-            element.value = params
-        }
-    });
-    return this.element[0].value
-}
-
-Metz.prototype.validate = function (params) {
-    this.element.forEach(element => {
-        var input = document.querySelectorAll('element input')
-        input.forEach(input => {
-            if(input || input != '' || input == null){
+    animateColor (data,speed) {
+        var x = 0
+        this.element.forEach(obj => {
+            if(data.type == 'border'){
+                obj.style.border = '1px solid'
+                if(data.color == 'random'){
+                    setInterval(function(){obj.style.borderColor = randomColor()},speed)
+                }else{
+                    setInterval(function(){
+                        if(x <= data.color.length){
+                            obj.style.borderColor = data.color[x]
+                            x++
+                        }
+                        if(x > data.color.length){
+                            x = 0
+                        }
+                    },speed)
+                }
                 
             }
-        });
-    });
-    return this
-}
-
-Metz.prototype.load = function (params) {
-    this.element.forEach(element => {
-        fetch(params).then(response => response.text())
-        .then(data => {
-            element.innerHTML = data
+            if(data.type == "text"){
+                if(data.color == 'random'){
+                    setInterval(function(){obj.style.color = randomColor()},speed)
+                }else if(data.color && data.color != ''){
+                    setInterval(function(){
+                        if(x <= data.color.length){
+                            obj.style.color = data.color[x]
+                            x++
+                        }
+                        if(x > data.color.length){
+                            x = 0
+                        }
+                    },speed)
+                }
+            }
         })
-    });
-    return this
+        return this
+    }
+
+    animateChar (data) {
+        this.element.forEach(obj => {
+            var char = 0 
+            var text = obj.innerText
+            var color
+            if(data.text){text = data.text}else{text = obj.innerText}
+            var splitText = text.split('')
+            obj.innerHTML = ''
+            const classCode = generateStringWithoutNumbers(8)
+    
+            for(var i = 0;i < splitText.length;i++){
+                if(data.color == null){color = 'black'}
+                if(data.color != null && data.color == 'random'){color = randomColor()}
+                if(data.color != null && data.color != 'random'){color = data.color}
+                obj.innerHTML += `<span class="${classCode} w3-invisible" style="color:${color};">${splitText[i]}</span>`
+            }
+    
+            var timer = setInterval(function(){
+                var span = document.querySelectorAll('span.'+classCode)[char]
+                span.classList.remove('w3-invisible')
+                span.classList.add('w3-animate-'+data.effect)
+                char++
+                if(char >= splitText.length){
+                    clearInterval(timer)
+                }
+            }, data.speed)
+        })
+        return this
+    }
+
+    counterUp (data) {
+        this.element.forEach(obj => {
+            var number
+            var x = 0
+    
+            if(data.number){
+                number = data.number
+            }
+    
+            if(!data.number){
+                number = obj.innerText
+            }
+    
+            var counterUpTimer = setInterval(() => {runCounterUp()},data.speed)
+    
+            function runCounterUp(){
+                x++
+                if(x <= number ){
+                    obj.innerHTML = x
+                }
+                if(data.loop == true){
+                    if(x >= number){
+                        x = 0
+                    }
+                }else{
+                    if(x >= number){
+                        clearInterval(counterUpTimer)
+                    }
+                }
+            }
+            
+        })
+        return this
+    }
+
+    style (prop, val) {
+        this.element.forEach(function(element) {
+            var classCode = generateStringWithoutNumbers(15)
+            var css = '.'+classCode+'{'+prop+'}'
+            element.classList.add(classCode)
+            document.querySelector('style').innerHTML += css
+        })
+        return this
+    }
+
+    css (prop, val) {
+        this.element.forEach(function(element) {
+            element.style[prop] = val
+        })
+        return this
+    }
+
+    // animate (params) {
+    //     this.element.forEach(element => {
+            
+    //     });
+    // }
+
+    addClass (params) {
+        this.element.forEach(element => {
+            element.classList.add(params)
+        });
+        return this
+    }
+
+    removeClass (params) {
+        this.element.forEach(element => {
+            element.classList.remove(params)
+        });
+        return this
+    }
+
+    toggleClass (params) {
+        this.element.forEach(element => {
+            var list = element.classList.contains(params)
+            if(list == true){
+                element.classList.remove(params)
+            }
+            if(list == false){
+                element.classList.add(params)
+            }
+        });
+        return this
+    }
+
+    on (param,callback) {
+        this.element.forEach(element => {
+            element.addEventListener(param,function(){
+                callback()
+            })
+        });
+        return this
+    }
+
+    focus (params) {
+        this.element.forEach(element => {
+            element.focus()
+        });
+        return this
+    }
+
+    text (params) {
+        this.element.forEach(element => {
+            if(params || params == ''){
+                element.innerText = params
+            }
+        });
+        return this.element[0].innerText
+    }
+
+    html (params) {
+        this.element.forEach(element => {
+            if(params || params == ''){
+                element.innerHTML = params
+            }
+        });
+        return this.element[0].innerHTML
+    }
+
+    val (params) {
+        this.element.forEach(element => {
+            if(params || params == ''){
+                element.value = params
+            }
+        });
+        return this.element[0].value
+    }
+
+    // validate (params) {
+    //     this.element.forEach(element => {
+    //         var input = document.querySelectorAll('element input')
+    //         input.forEach(input => {
+    //             if(input || input != '' || input == null){
+                    
+    //             }
+    //         });
+    //     });
+    //     return this
+    // }
+
+    load (params) {
+        this.element.forEach(element => {
+            fetch(params).then(response => response.text())
+            .then(data => {
+                element.innerHTML = data
+            })
+        });
+        return this
+    }
+
 }
