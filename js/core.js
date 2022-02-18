@@ -63,7 +63,7 @@ function loadHome(){
 
         Metz('#sub').animateText({
             text: 'Frontend Web Developer',
-        },100)
+        },20)
 
         Metz('#card').animateColor({
             color: 'random',
@@ -71,8 +71,8 @@ function loadHome(){
         },500)
 
         Metz('.w3-title').animateChar({
-            effect: 'top',
-            speed: 40
+            effect: 'random',
+            speed: 10
         })
 
     })
@@ -83,11 +83,6 @@ function loadProject(){
         return response.text()
     }).then(function(data){
         main.innerHTML = data
-
-        Metz('#project').counterUp({
-            number: 2,
-            speed: 100
-        })
 
         var image = document.querySelectorAll('.image')
         var imageShow = document.querySelector('.imageShow')

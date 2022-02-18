@@ -117,6 +117,11 @@ class MetzLibrary {
             var splitText = text.split('')
             obj.innerHTML = ''
             const classCode = generateStringWithoutNumbers(8)
+
+            const effect= (params) => {
+                const arr = ['top','bottom','right','left']
+                if(params != 'random'){return params}else{return arr[Math.floor(Math.random() * arr.length)]}
+            }
     
             for(var i = 0;i < splitText.length;i++){
                 if(data.color == null){color = 'black'}
@@ -128,7 +133,7 @@ class MetzLibrary {
             var timer = setInterval(function(){
                 var span = document.querySelectorAll('span.'+classCode)[char]
                 span.classList.remove('w3-invisible')
-                span.classList.add('w3-animate-'+data.effect)
+                span.classList.add('w3-animate-'+effect(data.effect))
                 char++
                 if(char >= splitText.length){
                     clearInterval(timer)
@@ -189,12 +194,6 @@ class MetzLibrary {
         })
         return this
     }
-
-    // animate (params) {
-    //     this.element.forEach(element => {
-            
-    //     });
-    // }
 
     addClass (params) {
         this.element.forEach(element => {
