@@ -1,70 +1,38 @@
-<div class="w3-container w3-card w3-padding-16">
-        <div class="w3-content" style="margin-top: 4vh;">
-            <div class="w3-padding-16">
-                <div class="w3-card w3-padding-16 w3-container w3-border w3-border-green w3-hover-border-red">
-                    <h2 class="w3-padding-">Projects : <span id="project" class="">4</span></h2>
-                </div>
-            </div>
-            <div class="w3-padding-16">
-                <div class="w3-card w3-padding-16 w3-container w3-border w3-border-green w3-hover-border-red">
-                    <div class="w3-container">
-                        <h1>Note Application</h1>
-                        <p>Build in : Javascript, bootstrap</p>
-                        <p>Demo : <a target="_blank" href="https://erselmetz.github.io/note-app-javascript/" class="w3-hover-text-red">
-                            https://erselmetz.github.io/note-app-javascript
-                        </a></p>
-                        <p>Github : <a target="_blank" href="https://github.com/erselmetz/note-app-javascript"
-                            class="w3-hover-text-red">https://github.com/erselmetz/note-app-javascript</a></p>
-                        <img src="img/Screenshot (35).png" alt="" class="w3-image">
-                    </div>
-                </div>
-            </div>
-            <div class="w3-padding-16">
-                <div class="w3-card w3-padding-16 w3-container w3-border w3-border-green w3-hover-border-red">
-                    <div class="w3-container">
-                        <h1>Facebook Clone</h1>
-                        <p>Build in : bootstrap 5 ,js ,html ,sccs</p>
-                        <p>Demo : <a target="_blank" href="https://erselmetz.github.io/facebook-clone-bootstrap/" class="w3-hover-text-red">
-                            https://erselmetz.github.io/facebook-clone-bootstrap
-                        </a></p>
-                        <p>Github : <a target="_blank" href="https://github.com/erselmetz/facebook-clone-bootstrap"
-                            class="w3-hover-text-red">https://github.com/erselmetz/facebook-clone-bootstrap</a></p>
-                        <img src="img/Screenshot (30).png" alt="" class="w3-image">
-                    </div>
-                </div>
-            </div>
-            <div class="w3-padding-16">
-                <div class="w3-card w3-padding-16 w3-container w3-border w3-border-green w3-hover-border-red">
-                    <div class="w3-container">
-                        <h1>Simple Calculator</h1>
-                        <p>Build in : Javascript, Html</p>
-                        <p>Demo : <a target="_blank" href="https://erselmetz.github.io/simple-calculator/" class="w3-hover-text-red">
-                            https://erselmetz.github.io/simple-calculator
-                        </a></p>
-                        <p>Github : <a target="_blank" href="https://github.com/erselmetz/simple-calculator"
-                            class="w3-hover-text-red">https://github.com/erselmetz/simple-calculator</a></p>
-                        <img src="img/Screenshot (29).png" alt="" class="w3-image">
-                    </div>
-                </div>
-            </div>
-            <div class="w3-padding-16">
-                <div class="w3-card w3-padding-16 w3-container w3-border w3-border-green w3-hover-border-red">
-                    <div class="w3-container">
-                        <h1>Movies info</h1>
-                        <p>Build in : Javascript</p>
-                        <p>Demo : <a target="_blank" href="https://erselmetz.github.io/movies-info" class="w3-hover-text-red">
-                            https://erselmetz.github.io/movies-info
-                        </a></p>
-                        <p>Github : <a target="_blank" href="https://github.com/erselmetz/movies-info"
-                            class="w3-hover-text-red">https://github.com/erselmetz/movies-info</a></p>
-                        <img src="img/Screenshot (28).png" alt="" class="w3-image">
-                    </div>
-                </div>
-            </div>
-        </div>
+<div class="p-4 md:p-16">
+
+    <div class="p-4 border border-green-700 hover:border-blue-700 shadow-lg">
+        <h2 class="">Projects : <span id="project" class="">4</span></h2>
     </div>
-</div>
-<div class="w3-modal w3-container imageShowModal">
-    <button class="hideModal w3-red w3-btn w3-jumbo" style="position: fixed;top: 0;right: 0;">&times;</button>
-    <img src="" class="imageShow">
+
+    <project-box 
+        title="Note Application" 
+        buildIn=" Javascript, Bootstrap 5" 
+        demo="https://erselmetz.github.io/note-app-javascript/"
+        github="https://github.com/erselmetz/note-app-javascript"
+        image="img/Screenshot (35).png">
+    </project-box>
+
+    <project-box 
+        title="Facebook Clone" 
+        buildIn="Bootstrap 5, js" 
+        demo="https://erselmetz.github.io/facebook-clone-bootstrap/"
+        github="https://github.com/erselmetz/facebook-clone-bootstrap"
+        image="img/Screenshot (30).png">
+    </project-box>
+
+    <project-box 
+        title="Simple Calculator" 
+        buildIn="Html, Tailwindcss, Javascript" 
+        demo="https://erselmetz.github.io/simple-calculator/"
+        github="https://github.com/erselmetz/simple-calculator"
+        image="img/Screenshot (36).png">
+    </project-box>
+
+    <project-box 
+        title="Movies info" 
+        buildIn="Javascript" 
+        demo="https://erselmetz.github.io/movies-info"
+        github="https://github.com/erselmetz/movies-info"
+        image="img/Screenshot (28).png">
+    </project-box>
 </div>

@@ -1,3 +1,5 @@
+import ProjectBox from "./components/project.js"
+
 var main = document.querySelector('main')
 
 function sendMail(){
@@ -19,7 +21,6 @@ function sendMail(){
 
         emailjs.send('service_mym8wyj','template_zgc8t6b',tempParams)
         .then(function(res){
-            console.log('success',res.status)
             from_name.value = ''
             from_email.value = ''
             message.value = ''
@@ -30,27 +31,21 @@ function sendMail(){
 
     }else{
         if(!from_name.value){
-            from_name.classList.remove('w3-border-green')
-            from_name.classList.add('w3-border-red')
+            from_name.classList.add('border-red-700')
         }else{
-            from_name.classList.remove('w3-border-red')
-            from_name.classList.add('w3-border-green')
+            from_name.classList.remove('border-red-700')
         }
 
         if(!from_email.value){
-            from_email.classList.remove('w3-border-green')
-            from_email.classList.add('w3-border-red')
+            from_email.classList.add('border-red-700')
         }else{
-            from_email.classList.remove('w3-border-red')
-            from_email.classList.add('w3-border-green')
+            from_email.classList.remove('border-red-700')
         }
 
         if(!message.value){
-            message.classList.remove('w3-border-green')
-            message.classList.add('w3-border-red')
+            message.classList.add('border-red-700')
         }else{
-            message.classList.remove('w3-border-red')
-            message.classList.add('w3-border-green')
+            message.classList.remove('border-red-700')
         }
     }
 }
@@ -70,7 +65,7 @@ function loadHome(){
             type:'border'
         },500)
 
-        Metz('.w3-title').animateChar({
+        Metz('.introduction').animateChar({
             effect: 'random',
             speed: 10
         })
@@ -131,45 +126,49 @@ function loadAbout(){
 }
 
 window.addEventListener('load',function(){
-    Metz('.home').addClass('w3-text-red')
+    Metz('.home').addClass('text-blue-700')
     loadHome()
 })
 
-Metz('.home').on('click',function(){
-    Metz('.about').removeClass('w3-text-red')
-    Metz('.project').removeClass('w3-text-red')
-    Metz('.home').addClass('w3-text-red')
-    loadHome()
-})
-Metz('.project').on('click',function(){
-    Metz('.about').removeClass('w3-text-red')
-    Metz('.home').removeClass('w3-text-red')
-    Metz('.project').addClass('w3-text-red')
-    loadProject()
-    window.scrollTo(top)
-})
-Metz('.about').on('click',function(){
-    Metz('.project').removeClass('w3-text-red')
-    Metz('.home').removeClass('w3-text-red')
-    Metz('.about').addClass('w3-text-red')
-    loadAbout()
-    window.scroll(top)
-})
+const navbar = () => {
+    const trigger = document.querySelector('#navbarTrigger')
+    const list = document.querySelector('#navbarList')
+    trigger.addEventListener('click',() => {
+        list.classList.toggle('hidden')
+    })
 
-Metz('.w3-navbar-trigger').on('click',function(){
-    Metz('#navbar').toggleClass('w3-hide-small')
-})
-Metz('.home').on('click',function(){
-    Metz('.navbar').addClass('w3-hide-small')
-    Metz('#navbar').toggleClass('w3-hide-small')
-})
-Metz('.project').on('click',function(){
-    Metz('.navbar').addClass('w3-hide-small')
-    Metz('#navbar').toggleClass('w3-hide-small')
+    Metz('.home').on('click',function(){
+        Metz('.about').removeClass('text-blue-700')
+        Metz('.project').removeClass('text-blue-700')
+        Metz('.home').addClass('text-blue-700')
+        loadHome()
+    })
+    Metz('.project').on('click',function(){
+        Metz('.about').removeClass('text-blue-700')
+        Metz('.home').removeClass('text-blue-700')
+        Metz('.project').addClass('text-blue-700')
+        loadProject()
+        window.scrollTo(top)
+    })
+    Metz('.about').on('click',function(){
+        Metz('.project').removeClass('text-blue-700')
+        Metz('.home').removeClass('text-blue-700')
+        Metz('.about').addClass('text-blue-700')
+        loadAbout()
+        window.scroll(top)
+    })
+    
+    Metz('.home').on('click',function(){
+        Metz('#navbarList').toggleClass('hidden')
+    })
+    Metz('.project').on('click',function(){
+        Metz('#navbarList').toggleClass('hidden')
+    
+    })
+    Metz('.about').on('click',function(){
+        Metz('#navbarList').toggleClass('hidden')
+    
+    })
+}
 
-})
-Metz('.about').on('click',function(){
-    Metz('.navbar').addClass('w3-hide-small')
-    Metz('#navbar').toggleClass('w3-hide-small')
-
-})
+navbar()
