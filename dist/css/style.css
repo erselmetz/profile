@@ -594,6 +594,10 @@ Ensure the default browser behavior of the `hidden` attribute.
   gap: 1rem;
 }
 
+.break-all {
+  word-break: break-all;
+}
+
 .border {
   border-width: 1px;
 }

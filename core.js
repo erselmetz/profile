@@ -57,7 +57,7 @@ function loadHome(){
         main.innerHTML = data
 
         Metz('#sub').animateText({
-            text: 'Frontend Web Developer',
+            text: 'Fullstack Web Developer',
         },20)
 
         Metz('#card').animateColor({
