@@ -1,0 +1,16 @@
+@import url('./w3.css');
+
+/* additional w3 classes */
+html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif;}
+.w3-screen-center{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;}
+.w3-sidebar {
+    z-index: 3;
+    width: 250px;
+    top: 43px;
+    bottom: 0;
+    height: inherit;
+}
