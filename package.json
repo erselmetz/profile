@@ -7,8 +7,8 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "nodemon main.js"
   },
-  "author": "",
-  "license": "ISC",
+  "author": "Ersel Metz Magbanua",
+  "license": "MIT",
   "dependencies": {
     "express": "^4.18.1",
     "nodemon": "^2.0.16",
