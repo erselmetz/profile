@@ -4,7 +4,7 @@
   "description": "node express profile",
   "main": "index.js",
   "engines": {
-    "node": "14.18.1"
+    "node": "14.x"
   },
   "scripts": {
     "test": "nodemon index.js",
