@@ -1,11 +1,14 @@
 {
   "name": "erselmetz.ml",
   "version": "1.0.0",
-  "description": "",
-  "main": "main.js",
+  "description": "node express profile",
+  "main": "index.js",
+  "engines": {
+    "node": "14.18.1"
+  },
   "scripts": {
-    "test": "nodemon main.js",
-    "start": "node main.js"
+    "test": "nodemon index.js",
+    "start": "node index.js"
   },
   "author": "Ersel Metz Magbanua",
   "license": "MIT",

@@ -9,18 +9,18 @@ app.use('/js/core',express.static('./src/js/core.js'))
 
 app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname,'./src/index.html'));
-})
+});
 
 app.get('/home', (req, res) => {
     res.sendFile(path.join(__dirname,'./src/home.html'))
-})
+});
 
 app.get('/project', (req, res) => {
     res.sendFile(path.join(__dirname,'./src/project.html'))
-})
+});
 
 app.get('/about', (req, res) => {
     res.sendFile(path.join(__dirname,'./src/about.html'))
-})
+});
 
-app.listen(8080, () => console.log('project is live on port:8080'))
+app.listen(8080, () => console.log('project is live on port:8080'));
