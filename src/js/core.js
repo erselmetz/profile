@@ -116,7 +116,7 @@ class App {
             .then(data => {
                 main.innerHTML = data
                 Metz('#sub').animateText({
-                    text: 'Backend Web Developer, AI Developer',
+                    text: 'Web Developer',
                 }, 20)
 
                 Metz('#card').animateColor({
