@@ -13,4 +13,53 @@ html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif;}
     top: 43px;
     bottom: 0;
     height: inherit;
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+}
+
+.homecontent{
+    border: 1px solid black;
+    border-radius: 20px;
+}
+
+.sidebar-link{
+    border: 1px solid black;
+    border-radius: 20px;
+}
+
+.footer{
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    text-align: center;
+    padding: 16px;
+}
+
+.image{
+    border: 1px;
+    border-radius: 50px;
+    background: rgba(76, 175, 80, 0.3);
+}
+
+.skills{
+    height: 250px;
+    width: 100%;
+}
+
+.skills .bg{
+    position: absolute;
+    background: url("https://i.pinimg.com/736x/1c/6a/c0/1c6ac0ad1ad24c828988b6ab6e5cec81.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    filter: blur(2px);
+    -webkit-filter: blur(2px);
+    height: 100%;
+    width: 100%;
+}
+.skills .content{
+    position: absolute;
+    background-color: rgba(0,0,0, 0.4);
+    color: whitesmoke;
+    padding: 16px;
+    width: 100%;
+    height: 100%;
 }
