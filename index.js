@@ -2,13 +2,18 @@ const express = require('express')
 const path = require('path')
 const app = express()
 
+// assets
 app.use('/style',express.static(path.join(__dirname,'./src/css/style.css')))
 app.use('/w3css',express.static(path.join(__dirname,'./src/css/w3.css')))
 app.use('/js/metz',express.static(path.join(__dirname,'./src/js/metz.js')))
 app.use('/js/core',express.static(path.join(__dirname,'./src/js/core.js')))
+
+// img
 app.use('/img/simple-calculator',express.static(path.join(__dirname,'./src/img/Simple-calculator.png')))
 app.use('/img/note-app-javascript',express.static(path.join(__dirname,'./src/img/Note-App-Javascript.png')))
+app.use('/img/login-system',express.static(path.join(__dirname,'./src/img/Screenshot 2022-09-09 161657.png')))
 
+// routes
 app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname,'./src/index.html'));
 });
