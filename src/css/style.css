@@ -1,5 +1,10 @@
-@import url('/w3css');
+@import url(https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css);
+@import url(https://www.w3schools.com/lib/w3-theme-black.css);
+@import url(https://fonts.googleapis.com/css?family=Roboto);
+@import url(https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css);
 
+@import url(/w3css);
+@import url(/jQueryScript/aeo-typewriter/css);
 /* additional w3 classes */
 html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif;}
 .w3-screen-center{
