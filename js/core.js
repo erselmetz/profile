@@ -47,7 +47,7 @@ class Email {
 
 class App {
     loadHome() {
-        fetch('/home')
+        fetch('/home.html')
             .then(response => response.text())
             .then(data => {
                 $('#content #home').append(data);
@@ -57,7 +57,7 @@ class App {
     }
 
     loadProject() {
-        fetch('/project')
+        fetch('/project.html')
             .then(response => response.text())
             .then(function (data) {
                 $('#content #project').append(data);
@@ -92,7 +92,7 @@ class App {
     }
 
     loadAbout() {
-        fetch('/about')
+        fetch('/about.html')
             .then(response => response.text())
             .then((data) => {
                 $('#content #about').append(data);
