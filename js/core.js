@@ -1,3 +1,5 @@
+const main = document.querySelector('#content')
+
 class Email {
     send() {
         const from_name = document.getElementById('from_name')
@@ -45,22 +47,106 @@ class Email {
     }
 }
 
+class Sidebar {
+    constructor() {
+        // Get the Sidebar
+        this.mySidebar = document.getElementById("mySidebar");
+        // Get the DIV with overlay effect
+        this.overlayBg = document.getElementById("myOverlay");
+    }
+    execute() {
+        const open = document.querySelector('.open_sidebar');
+        const close = document.querySelector('.close_sidebar');
+
+        open.addEventListener('click', () => {
+            this.open()
+        });
+
+        close.addEventListener('click', () => {
+            this.close()
+        });
+    }
+    open() {
+        if (this.mySidebar.style.display === 'block') {
+            this.mySidebar.style.display = 'none';
+            this.overlayBg.style.display = "none";
+        } else {
+            this.mySidebar.style.display = 'block';
+            this.overlayBg.style.display = "block";
+        }
+    }
+    close() {
+        this.mySidebar.style.display = "none";
+        this.overlayBg.style.display = "none";
+    }
+}
+
 class App {
+
+    home() {
+        $(".home").on("click", () => {
+            this.loadHome();
+            window.scrollTo(top)
+            sidebar.close();
+        }); 
+    }
+
+    project() {
+        $(".project").on("click", () => {
+            this.loadProject();
+            window.scrollTo(top)
+            sidebar.close()
+        });
+    }
+
+    about() {
+        $(".about").on("click", () => {
+            this.loadAbout();
+            window.scrollTo(top)
+            sidebar.close();
+        });
+    }
+
     loadHome() {
-        fetch('home.html')
-            .then(response => response.text())
-            .then(data => {
-                $('#content #home').append(data);
-                $('#sub').typewriter({delay: 50});
-                $('.introduction').typewriter({delay: 50});
+        fetch('./home.html')
+        .then(response => response.text())
+        .then(data => {
+            main.innerHTML = data
+            Metz('#sub').animateText({
+                text: 'Web Developer',
+            }, 20)
+
+            Metz('#card').animateColor({
+                color: 'random',
+                type: 'border'
+            }, 500)
+
+            Metz('.introduction').animateChar({
+                effect: 'random',
+                speed: 10
             })
+
+            $(".project").on("click", () => {
+                this.loadProject();
+                window.scrollTo(top)
+                sidebar.close()
+            });
+            
+            $(".about").on("click", () => {
+                this.loadAbout();
+                window.scrollTo(top)
+                sidebar.close();
+            });
+                
+
+        })
     }
 
     loadProject() {
-        fetch('project.html')
+        fetch('./project.html')
             .then(response => response.text())
             .then(function (data) {
-                $('#content #project').append(data);
+                main.innerHTML = data
 
                 const image = document.querySelectorAll('.image')
                 const imageShow = document.querySelector('.imageShow')
@@ -92,10 +178,10 @@ class App {
     }
 
     loadAbout() {
-        fetch('about.html')
+        fetch('./about.html')
             .then(response => response.text())
             .then((data) => {
-                $('#content #about').append(data);
+                main.innerHTML = data
                 const sendEmail = document.querySelector('form[name=sendEmail]')
                 sendEmail.addEventListener('submit', (e) => {
                     e.preventDefault();
@@ -107,8 +193,12 @@ class App {
 }
 
 const app = new App;
+const sidebar = new Sidebar;
 const email = new Email;
 
+app.home();
+app.project();
+app.about();
 app.loadHome();
-app.loadProject();
-app.loadAbout();
+
+sidebar.execute();

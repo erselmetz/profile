@@ -7,7 +7,11 @@
     <title>Profile</title>
 
     <!-- style -->
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="https://www.w3schools.com/lib/w3-theme-black.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
     <!-- email js -->
     <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
@@ -21,20 +25,29 @@
     <!-- Navbar -->
     <div class="w3-top">
         <div class="w3-bar w3-theme w3-top w3-left-align w3-large">
+            <a class="open_sidebar w3-bar-item w3-button w3-right w3-hide-large w3-hover-white w3-large w3-theme-l1" href="javascript:void(0)"><i class="fa fa-bars"></i></a>
             <a href="#" class="w3-bar-item w3-button w3-theme-l1">Ersel Metz Magbanua</a>
         </div>
     </div>
 
+    <!-- Sidebar -->
+    <nav class="w3-sidebar w3-bar-block w3-collapse w3-large w3-theme-l5 w3-animate-left" id="mySidebar">
+        <a href="javascript:void(0)" class="close_sidebar w3-right w3-xlarge w3-padding-large w3-hover-black w3-hide-large w3-round-xxlarge" title="Close Menu">
+            <i class="fa fa-remove"></i>
+        </a>
+        <h4 class="w3-bar-item"><b>Menu</b></h4>
+        <a class="home w3-bar-item w3-button w3-hover-black sidebar-link">Home</a>
+        <a class="project w3-bar-item w3-button w3-hover-black sidebar-link">Project</a>
+        <a class="about w3-bar-item w3-button w3-hover-black sidebar-link">About</a>
+    </nav>
+
+    <!-- Overlay effect when opening sidebar on small screens -->
+<div class="w3-overlay w3-hide-large close_sidebar" style="cursor:pointer" title="close side menu" id="myOverlay"></div>
+
     <!-- Main content: shift it to the right by 250 pixels when the sidebar is visible -->
-    <div class="w3-main">
-
+    <div class="w3-main" style="margin-left:250px">
         <!-- content -->
-        <div id="content" class="w3-container w3-padding-64">
-            <div id="home"></div>
-            <div id="project"></div>
-            <div id="about"></div>
-        </div>
-
+        <div id="content" class="w3-container w3-padding-64"></div>
         <!-- footer -->
         <footer id="myFooter">
             <div class="w3-theme-l2 footer">
@@ -43,20 +56,13 @@
                     <i class="fa fa-facebook-official w3-hover-opacity w3-block">
                         <a href="https://facebook.com/erselmetz" target="_blank">Ersel Metz Magbanua</a>
                     </i>
-                    <i class="fa fa-instagram w3-hover-opacity w3-block">
-                        <a href="https://instagram.com/ersel_metz" target="_blank">ersel_metz</a>
-                    </i>
-                    <i class="fa fa-twitter w3-hover-opacity w3-block">
-                        <a href="https://twitter.com/MetzErsel" target="_blank">MetzErsel</a>
-                    </i>
                 </div>
             </div>
         </footer>
     </div>
     <!-- END MAIN -->
-
-    <script src="js/jquery.js"></script>
-    <script src="js/core.js" type="module"></script>
-    <script src="jQueryScript/aeo-typewriter/js/aeo-typewriter.js"></script>
+    <script src="./js/jquery.js"></script>
+    <script src="./js/metz.js"></script>
+    <script src="./js/core.js" type="module"></script>
 </body>
 </html>
