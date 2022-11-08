@@ -1,3 +1,3 @@
 <?php
 
-php_info();
+echo phpinfo();
