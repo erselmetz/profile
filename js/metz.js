@@ -4,7 +4,7 @@ const special = ',./@{}[]()$#!*_-'
 
 function generateString(length) {
     const characters = strings + numbers
-    result = ''
+    let result = ''
     for (let i = 0; i < length; i++) {
         result += characters.charAt(Math.floor(Math.random() * characters.length))
     }
@@ -12,7 +12,7 @@ function generateString(length) {
 }
 
 function generateStringWithoutNumbers(length) {
-    result = ''
+    let result = ''
     for (let i = 0; i < length; i++) {
         result += strings.charAt(Math.floor(Math.random() * strings.length))
     }
@@ -20,7 +20,7 @@ function generateStringWithoutNumbers(length) {
 }
 
 function generateNumber(length) {
-    result = ''
+    let result = ''
     for (let i = 0; i < length; i++) {
         result += numbers.charAt(Math.floor(Math.random() * numbers.length))
     }
@@ -28,7 +28,7 @@ function generateNumber(length) {
 }
 
 function randomColor() {
-    result = '#' + Math.floor(Math.random() * 16777215).toString(16)
+    const result = '#' + Math.floor(Math.random() * 16777215).toString(16)
     return result
 }
 

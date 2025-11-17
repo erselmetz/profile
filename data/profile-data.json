@@ -1,0 +1,103 @@
+{
+  "personal": {
+    "name": "Ersel Metz Magbanua",
+    "fullName": "Ersel Metz Magbanua",
+    "jobTitle": "Web Developer",
+    "profession": "Web Developer",
+    "email": "magbanuaersel@gmail.com",
+    "location": "Rizal, Philippines",
+    "city": "Rizal",
+    "country": "Philippines",
+    "website": "https://erselmetz.github.io/",
+    "bio": "Web developer specializing in frontend and backend development",
+    "aboutMe": {
+      "paragraph1": "Welcome to my portfolio! I'm a dedicated web developer with a passion for creating innovative web solutions. I specialize in building responsive, user-friendly websites and web applications using modern technologies.",
+      "paragraph2": "With experience in both frontend and backend development, I bring a comprehensive understanding of the web development process. My expertise includes creating dynamic user interfaces, developing robust server-side applications, and ensuring seamless user experiences across all devices.",
+      "paragraph3": "I'm always eager to take on new challenges and collaborate on exciting projects. Whether it's developing a new web application from scratch or enhancing existing systems, I approach every project with attention to detail and a commitment to excellence."
+    },
+    "age": {
+      "birthYear": 2004,
+      "birthMonth": 0,
+      "birthDay": 1
+    }
+  },
+  "social": {
+    "facebook": "https://facebook.com/ersel.magbanua",
+    "github": "https://github.com/erselmetz",
+    "linkedin": "https://linkedin.com/in/erselmetz",
+    "twitter": "",
+    "instagram": "",
+    "youtube": ""
+  },
+  "education": [
+    {
+      "degree": "Bachelor's Degree in Computer Science",
+      "institution": "Renaissance School of Science and Technology",
+      "location": "Rizal, Philippines",
+      "startYear": "2022",
+      "endYear": "2025",
+      "isOngoing": true,
+      "description": "Relevant coursework: Web Development, Database Management, Software Engineering, Object-Oriented Programming"
+    }
+  ],
+  "experience": [
+    {
+      "title": "Web Developer",
+      "company": "Freelance",
+      "location": "",
+      "startDate": "2023-01",
+      "endDate": "Present",
+      "isCurrent": true,
+      "description": "Developed responsive web applications using PHP, JavaScript, and modern frameworks",
+      "responsibilities": [
+        "Developed responsive web applications using PHP, JavaScript, and modern frameworks",
+        "Collaborated with team members to design and implement new features",
+        "Maintained and optimized existing codebases for better performance",
+        "Worked with databases to design and implement data structures"
+      ]
+    }
+  ],
+  "certifications": [
+    {
+      "title": "Web Development Certification",
+      "issuingOrganization": "[Organization Name]",
+      "issueDate": "2023-06",
+      "expiryDate": "",
+      "credentialId": "",
+      "credentialUrl": "",
+      "type": "certification"
+    }
+  ],
+  "achievements": [
+    {
+      "title": "Achievement Title",
+      "organization": "[Organization Name]",
+      "date": "2023",
+      "description": "Description of achievement or recognition received.",
+      "type": "achievement"
+    }
+  ],
+  "projects": {
+    "githubUsername": "erselmetz",
+    "repositories": [
+      {
+        "name": "php-mvc-framework",
+        "url": "https://github.com/erselmetz/php-mvc-framework",
+        "demo": ""
+      },
+      {
+        "name": "note-app-javascript",
+        "url": "https://github.com/erselmetz/note-app-javascript",
+        "demo": "https://erselmetz.github.io/note-app-javascript/"
+      },
+      {
+        "name": "simple-calculator",
+        "url": "https://github.com/erselmetz/simple-calculator",
+        "demo": "https://erselmetz.github.io/simple-calculator/"
+      }
+    ]
+  },
+  "skills": {
+    "categories": ["Web Development", "PHP", "JavaScript", "Laravel", "Bootstrap", "MySQL"]
+  }
+}

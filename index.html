@@ -4,13 +4,54 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Profile</title>
+    <title>Ersel Metz Magbanua - Web Developer Portfolio</title>
+    <meta name="description" content="Portfolio website of Ersel Metz Magbanua, a web developer specializing in frontend and backend development. View projects, skills, and contact information.">
+    <meta name="keywords" content="web developer, portfolio, PHP, JavaScript, Laravel, Bootstrap, MySQL">
+    <meta name="author" content="Ersel Metz Magbanua">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://erselmetz.github.io/">
+    <meta property="og:title" content="Ersel Metz Magbanua - Web Developer Portfolio">
+    <meta property="og:description" content="Portfolio website showcasing web development projects and skills">
+    <meta property="og:image" content="https://erselmetz.github.io/img/profile.jpg">
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://erselmetz.github.io/">
+    <meta property="twitter:title" content="Ersel Metz Magbanua - Web Developer Portfolio">
+    <meta property="twitter:description" content="Portfolio website showcasing web development projects and skills">
+    <meta property="twitter:image" content="https://erselmetz.github.io/img/profile.jpg">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+    
+    <!-- Structured Data (JSON-LD) - Will be updated dynamically by profile-data.js -->
+    <script type="application/ld+json" data-schema="person">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Ersel Metz Magbanua",
+      "jobTitle": "Web Developer"
+    }
+    </script>
+    
+    <script type="application/ld+json" data-schema="website">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "Ersel Metz Magbanua - Portfolio"
+    }
+    </script>
 
     <!-- style -->
     <link rel="stylesheet" href="./css/style.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
     <link rel="stylesheet" href="https://www.w3schools.com/lib/w3-theme-black.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
     <!-- email js -->
@@ -51,16 +92,89 @@
         <!-- footer -->
         <footer id="myFooter">
             <div class="w3-theme-l2 footer">
-                <a href="#" class="w3-button w3-black w3-margin w3-round-xxlarge"><i class="fa fa-arrow-up w3-margin-right"></i>To the top</a>
+                <a href="#" class="w3-button w3-black w3-margin w3-round-xxlarge back-to-top-footer" onclick="window.scrollTo({top: 0, behavior: 'smooth'}); return false;"><i class="fa fa-arrow-up w3-margin-right"></i>To the top</a>
                 <div class="w3-xlarge w3-section">
-                    <i class="fa fa-facebook-official w3-hover-opacity w3-block">
-                        <a href="https://facebook.com/erselmetz" target="_blank">Ersel Metz Magbanua</a>
-                    </i>
+                    <h4><b>Connect With Me</b></h4>
+                    <div class="w3-margin-top">
+                        <a href="#" class="social-link w3-button w3-round-large w3-blue w3-margin" data-platform="facebook" target="_blank" title="Facebook">
+                            <i class="fa fa-facebook w3-margin-right"></i>Facebook
+                        </a>
+                        <a href="#" class="social-link w3-button w3-round-large w3-black w3-margin" data-platform="github" target="_blank" title="GitHub">
+                            <i class="fa fa-github w3-margin-right"></i>GitHub
+                        </a>
+                        <a href="#" class="social-link w3-button w3-round-large w3-margin" data-platform="linkedin" target="_blank" title="LinkedIn" style="background-color:#0077b5!important;color:white!important;">
+                            <i class="fa fa-linkedin w3-margin-right"></i>LinkedIn
+                        </a>
+                    </div>
                 </div>
             </div>
         </footer>
     </div>
     <!-- END MAIN -->
+    <!-- Google Analytics (replace GA_MEASUREMENT_ID with your actual Google Analytics ID) -->
+    <!-- Uncomment and add your Google Analytics ID when ready -->
+    <!--
+    <script async src="https://www.googletagmanager.com/gtag/js?id=GA_MEASUREMENT_ID"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'GA_MEASUREMENT_ID');
+    </script>
+    -->
+    
+    <!-- Event Tracking Script -->
+    <script>
+        // Track important interactions
+        document.addEventListener('DOMContentLoaded', function() {
+            // Track project clicks
+            document.addEventListener('click', function(e) {
+                if (e.target.closest('.project-card') || e.target.closest('.project')) {
+                    trackEvent('Project', 'View', e.target.closest('.project-card')?.querySelector('h1')?.textContent || 'Project');
+                }
+                
+                // Track social media clicks
+                if (e.target.closest('a[href*="facebook.com"], a[href*="github.com"], a[href*="linkedin.com"]')) {
+                    const platform = e.target.closest('a').href.includes('facebook') ? 'Facebook' :
+                                   e.target.closest('a').href.includes('github') ? 'GitHub' : 'LinkedIn';
+                    trackEvent('Social Media', 'Click', platform);
+                }
+                
+                // Track resume download
+                if (e.target.closest('#resume-download')) {
+                    trackEvent('Resume', 'Download', 'PDF');
+                }
+            });
+            
+            // Track page views
+            trackPageView();
+        });
+        
+        function trackEvent(category, action, label) {
+            // Google Analytics event tracking
+            if (typeof gtag !== 'undefined') {
+                gtag('event', action, {
+                    'event_category': category,
+                    'event_label': label
+                });
+            }
+            
+            // Console log for debugging (remove in production)
+            console.log('Event:', category, action, label);
+        }
+        
+        function trackPageView() {
+            // Track page view
+            if (typeof gtag !== 'undefined') {
+                gtag('config', 'GA_MEASUREMENT_ID', {
+                    'page_path': window.location.pathname
+                });
+            }
+        }
+    </script>
+    
+    <!-- Load profile data first -->
+    <script src="./js/profile-info.js"></script>
     <script src="./js/jquery.js"></script>
     <script src="./js/metz.js"></script>
     <script src="./js/core.js" type="module"></script>
