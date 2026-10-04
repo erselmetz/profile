@@ -1,1 +1,10 @@
 /markdown/
+/node_modules/
+/.next/
+/out/
+/build/
+/.vercel/
+/coverage/
+*.tsbuildinfo
+.env*
+!.env.example

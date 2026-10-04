@@ -2,18 +2,18 @@
   "personal": {
     "name": "Ersel Metz Magbanua",
     "fullName": "Ersel Metz Magbanua",
-    "jobTitle": "Web Developer",
-    "profession": "Web Developer",
+    "jobTitle": "Software Engineer",
+    "profession": "Software Engineer",
     "email": "magbanuaersel@gmail.com",
     "location": "Rizal, Philippines",
     "city": "Rizal",
     "country": "Philippines",
     "website": "https://erselmetz.github.io/",
-    "bio": "Web developer specializing in frontend and backend development",
+    "bio": "Software Engineer building thoughtful applications, developer tools, and web experiences with an AI-assisted, engineer-led workflow.",
     "aboutMe": {
-      "paragraph1": "Welcome to my portfolio! I'm a dedicated web developer with a passion for creating innovative web solutions. I specialize in building responsive, user-friendly websites and web applications using modern technologies.",
-      "paragraph2": "With experience in both frontend and backend development, I bring a comprehensive understanding of the web development process. My expertise includes creating dynamic user interfaces, developing robust server-side applications, and ensuring seamless user experiences across all devices.",
-      "paragraph3": "I'm always eager to take on new challenges and collaborate on exciting projects. Whether it's developing a new web application from scratch or enhancing existing systems, I approach every project with attention to detail and a commitment to excellence."
+      "paragraph1": "I'm a Software Engineer who enjoys turning complex ideas into clear, useful software. I work across web applications, backend systems, and desktop tools.",
+      "paragraph2": "My projects span PHP and Laravel, Python, C# and .NET, JavaScript, and relational databases. I use AI tools to support research, debugging, and iteration while I guide the architecture and verify the code I ship.",
+      "paragraph3": "I enjoy exploring new technologies, solving practical problems, and collaborating on products that make a meaningful difference."
     },
     "age": {
       "birthYear": 2004,
@@ -35,22 +35,22 @@
       "institution": "Renaissance School of Science and Technology",
       "location": "Rizal, Philippines",
       "startYear": "2022",
-      "endYear": "2025",
-      "isOngoing": true,
+      "endYear": "2026",
+      "isOngoing": false,
       "description": "Relevant coursework: Web Development, Database Management, Software Engineering, Object-Oriented Programming"
     }
   ],
   "experience": [
     {
-      "title": "Web Developer",
+      "title": "Software Engineer",
       "company": "Freelance",
       "location": "",
       "startDate": "2023-01",
       "endDate": "Present",
       "isCurrent": true,
-      "description": "Developed responsive web applications using PHP, JavaScript, and modern frameworks",
+      "description": "Building web applications and software tools with PHP, JavaScript, Python, and C#/.NET",
       "responsibilities": [
-        "Developed responsive web applications using PHP, JavaScript, and modern frameworks",
+        "Built web applications and software tools with PHP, JavaScript, Python, and C#/.NET",
         "Collaborated with team members to design and implement new features",
         "Maintained and optimized existing codebases for better performance",
         "Worked with databases to design and implement data structures"
@@ -86,18 +86,10 @@
         "demo": ""
       },
       {
-        "name": "note-app-javascript",
-        "url": "https://github.com/erselmetz/note-app-javascript",
-        "demo": "https://erselmetz.github.io/note-app-javascript/"
-      },
-      {
         "name": "simple-calculator",
         "url": "https://github.com/erselmetz/simple-calculator",
         "demo": "https://erselmetz.github.io/simple-calculator/"
       }
     ]
-  },
-  "skills": {
-    "categories": ["Web Development", "PHP", "JavaScript", "Laravel", "Bootstrap", "MySQL"]
   }
 }
