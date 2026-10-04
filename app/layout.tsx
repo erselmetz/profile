@@ -7,19 +7,20 @@ import { profile, siteUrl } from "@/lib/profile";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
-  title: `${profile.personal.name} — Software Engineer`,
+  title: `${profile.personal.name} | Software Engineer in Rizal, Philippines`,
   description: profile.personal.bio,
   authors: [{ name: profile.personal.name }],
   openGraph: {
     type: "website",
     url: siteUrl,
-    title: `${profile.personal.name} - Portfolio`,
+    siteName: `${profile.personal.name} | Software Engineer`,
+    title: `${profile.personal.name} | Software Engineer in Rizal, Philippines`,
     description: profile.personal.bio,
     images: ["/img/profile.jpg"],
   },
   twitter: {
     card: "summary_large_image",
-    title: `${profile.personal.name} - Portfolio`,
+    title: `${profile.personal.name} | Software Engineer in Rizal, Philippines`,
     description: profile.personal.bio,
     images: ["/img/profile.jpg"],
   },
